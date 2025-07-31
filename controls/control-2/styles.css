@@ -1,0 +1,142 @@
+:root {
+  --color-bg: #212129;
+  --color-text: #f9f9f9;
+  --color-muted: #5a5a63;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: var(--color-bg);
+  color: var(--color-text);
+  overflow: hidden;
+  font-family: "Euclid Circular A", "Poppins";
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.dropdown {
+  translate: 0 -60px;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.textbox label {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  pointer-events: none;
+  color: var(--color-muted);
+  transition: 0.3s;
+}
+
+.textbox > label {
+  left: 44px;
+  translate: 0 -50%;
+  padding: 4px 4px;
+  color: var(--color-text);
+}
+
+.textbox > .search-icon {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  z-index: 2;
+  left: 16px;
+  font-size: 26px;
+  color: var(--color-muted);
+}
+
+.material-symbols-outlined {
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+.textbox > input {
+  height: 56px;
+  width: 240px;
+  padding-left: 48px;
+  border: 2px solid var(--color-muted);
+  border-radius: 8px;
+  outline: none;
+  background: transparent;
+  color: #f9f9f9;
+  font-family: inherit;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.textbox > input:hover {
+  border-color: rgb(255 255 255 / 40%);
+}
+
+.textbox > input.valid.has-value {
+  border-color: #14ca99;
+  background: #2b2b37;
+}
+
+.textbox > :is(input:focus, .has-value) {
+  border-color: #d3d3d3;
+}
+
+.textbox > :is(input:focus, .has-value) ~ span {
+  color: var(--color-text);
+}
+
+.textbox > :is(input:focus, .has-value) ~ label {
+  background: var(--color-bg);
+  color: var(--color-text);
+  translate: -42px -42px;
+  scale: 0.8;
+}
+
+.menu {
+  overflow: auto;
+  position: absolute;
+  top: 64px;
+  left: 0;
+  display: grid;
+  width: 100%;
+  max-height: 180px;
+  border-radius: 8px;
+  background: #2b2b37;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+.dropdown.open .menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu button {
+  background: transparent;
+  font-family: inherit;
+  border: 0;
+  color: #f9f9f9;
+  text-align: left;
+  height: 36px;
+  font-size: 16px;
+  padding: 0 16px;
+  cursor: pointer;
+}
+
+.menu button.focused,
+.menu button:hover {
+  background: rgb(255 255 255 / 4%);
+}
+
+.menu p {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0 16px;
+  height: 36px;
+}
