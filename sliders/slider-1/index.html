@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sliders</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="slider-wrapper">
+      <label class="slider-label" for="slider-input"> Deposit </label>
+      <div class="slider">
+        <input id="slider-input" type="range" min="1" max="100" value="50" />
+        <div class="track"></div>
+        <div class="markers" id="markers">
+          <div class="marker" style="left: 0"></div>
+          <div class="marker" style="left: 25%"></div>
+          <div class="marker" style="left: 50%"></div>
+          <div class="marker" style="left: 75%"></div>
+          <div class="marker" style="left: 100%"></div>
+        </div>
+        <div class="bar" id="slider-bar" style="width: 50%"></div>
+      </div>
+      <div class="numeric-input-wrapper">
+        <input
+          type="text"
+          id="numeric-input"
+          class="numeric-input"
+          value="50"
+          placeholder="0"
+          maxlength="3"
+        />
+        <span class="numeric-input-suffix"> % </span>
+      </div>
+    </div>
+    <script type="text/javascript" src="main.js"></script>
+  </body>
+</html>
