@@ -1,0 +1,105 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-image: url("bg.jpg");
+  background-size: 250%;
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
+  color: #f9f9f9;
+  height: 100vh;
+  overflow: hidden;
+  font-family: "Euclid Circular B";
+}
+
+button {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  transition: 0.3s;
+}
+
+.sidebar {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  width: 260px;
+  border-radius: 16px;
+  background: rgb(0 0 0 / 40%);
+  backdrop-filter: blur(20px);
+  overflow: hidden;
+  transition: width 0.4s;
+}
+
+.sidebar header {
+  display: flex;
+  align-items: center;
+  height: 72px;
+  padding: 0 1.25rem 0 0;
+  background: rgb(0 0 0 / 8%);
+}
+
+.sidebar header button {
+  width: 58px;
+}
+
+.sidebar header img {
+  height: 24px;
+}
+
+.sidebar .menu {
+  position: relative;
+  display: grid;
+}
+
+.sidebar .menu::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 56px;
+  width: 6px;
+  background: #6199f7;
+  translate: 0 var(--top);
+  transition: 0.3s;
+}
+
+.sidebar button {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  height: 56px;
+  width: var(--width-closed);
+  font-size: 17px;
+  font-family: inherit;
+  text-transform: capitalize;
+  line-height: 1;
+  padding: 0 22px;
+  color: inherit;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+i {
+  font-size: 20px;
+}
+
+.sidebar .menu button:hover {
+  background: rgb(0 0 0 / 20%);
+}
+
+.sidebar .menu button.active {
+  background: rgb(0 0 0 / 28%);
+  opacity: 1;
+}
+
+.sidebar.open .menu .active {
+  cursor: default;
+}
