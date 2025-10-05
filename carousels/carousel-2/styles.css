@@ -5,7 +5,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   word-break: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: "Euclid Circular A", "Poppins", sans-serif;
+  font-family: "Euclid Circular B", "Poppins", sans-serif;
   margin: 0;
   overflow-x: hidden;
   color: #fff;
@@ -28,6 +28,11 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+section {
+  height: 50vh;
+}
+
 /* ============ Full Page Slider ================= */
 .swiper-slide {
   position: relative;
@@ -78,19 +83,20 @@ img {
 }
 .slide-container .slide-row .slider-content {
   flex: 0 0 auto;
-  padding-left: 215px;
-  padding-right: 215px;
+  padding-left: 300px;
+  padding-right: 300px;
+  scale: 1.3;
 }
 
 .slider-content p {
-  font-size: 18px;
+  font-size: 24px;
   opacity: 0.65;
   line-height: 1.6;
   max-width: 760px;
 }
 
 .slider-content h3 {
-  font-size: 24px;
+  font-size: 32px;
   text-transform: uppercase;
   letter-spacing: 2px;
   color: #fff;
@@ -123,4 +129,72 @@ img {
 
 .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background: #f9f9f9 !important;
+}
+
+nav {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 44px;
+  padding: 32px 44px;
+  background: rgb(0 0 0 / 2%);
+  backdrop-filter: blur(20px);
+}
+
+nav img {
+  height: 44px;
+}
+
+nav .search {
+  position: relative;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgb(255 255 255 / 6%);
+  border-radius: 100px;
+  padding: 6px 12px;
+}
+
+nav .search input {
+  background: transparent;
+  border: 0;
+  outline: 0;
+  color: rgb(255 255 255 / 55%);
+  padding-left: 60px;
+  font-family: inherit;
+  font-size: 34px;
+  height: 74px;
+  width: 100%;
+}
+
+nav .search i {
+  font-size: 32px;
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+nav .buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+}
+
+nav .buttons button {
+  background: transparent;
+  border: 0;
+  outline: 0;
+  color: #fff;
+}
+
+nav .buttons button i {
+  font-size: 40px;
 }
