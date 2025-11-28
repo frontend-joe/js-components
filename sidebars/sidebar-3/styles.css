@@ -1,0 +1,138 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: "Euclid Circular A";
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  height: 100vh;
+  width: 100vh;
+  background-color: #073e77;
+  background-image: url("bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 30%;
+  filter: brightness(0.75) grayscale(0.1) saturate(1.5);
+}
+
+.sidebar {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  bottom: 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 260px;
+  border-radius: 16px;
+  padding: 0 16px;
+  background: rgb(0 0 0 / 19%);
+  backdrop-filter: blur(30px);
+  transition: width 0.4s;
+}
+
+.sidebar header {
+  display: flex;
+  align-items: center;
+  height: 72px;
+  padding-top: 10px;
+  border-bottom: 1px solid rgb(255 255 255 / 8%);
+}
+
+.sidebar header img {
+  height: 44px;
+}
+
+.sidebar button {
+  position: relative;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+  padding: 0 16px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+  color: rgb(255 255 255 / 95%);
+}
+
+.sidebar button p:nth-child(2) {
+  flex: 1 1 auto;
+}
+
+.sidebar button.active {
+  background: rgb(0 0 0 / 15%);
+}
+
+.sidebar button i {
+  font-size: 17px;
+  transition: 0.3s;
+}
+
+.sidebar button.active i:nth-child(3) {
+  rotate: -180deg;
+}
+
+.sidebar button:not(.active):hover {
+  background: rgb(0 0 0 / 5%);
+}
+
+.sidebar ul {
+  display: grid;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.sub-menu {
+  position: relative;
+  overflow: hidden;
+  height: 0;
+  transition: 0.5s;
+}
+
+.sub-menu ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+}
+
+.sub-menu button {
+  padding-left: 48px;
+}
+
+.sub-menu button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 22.5px;
+  translate: 0 -50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: rgb(255 255 255 / 35%);
+}
+
+.sidebar i {
+  font-size: 20px;
+  width: 20px;
+  max-width: 20px;
+  min-width: 20px;
+}
