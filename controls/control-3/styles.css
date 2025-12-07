@@ -1,0 +1,222 @@
+.page.password-visibility-page {
+  display: grid;
+  place-items: center;
+  margin: 0;
+  padding: 0 20px;
+  background: #3284ce;
+  font-family: "Euclid Circular A", "Poppins";
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.password-visibility :is(button, input) {
+  border: 0;
+  width: 100%;
+  height: 60px;
+  background: transparent;
+  font-family: inherit;
+  font-size: 16px;
+  outline: none;
+}
+
+@keyframes clouds {
+  0% {
+    translate: 0;
+  }
+  100% {
+    translate: 0 134px;
+  }
+}
+
+.password-visibility-clouds {
+  position: fixed;
+  top: -134px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url("bg.png");
+  animation: clouds 3s both infinite linear;
+}
+
+.password-visibility {
+  --color-primary: #0d87ff;
+  --color-muted: #5a616c;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 70%;
+  max-width: 400px;
+  padding: 200px 60px;
+  background: #121216;
+}
+
+.password-visibility > h2 {
+  font-size: 32px;
+  font-weight: 300;
+  margin: 0 0 10px;
+  color: rgb(255 255 255 / 96%);
+}
+
+.password-visibility > h3 {
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0 0 30px;
+  color: var(--color-muted);
+}
+
+.password-visibility > form {
+  margin: 0;
+  display: grid;
+  gap: 16px;
+}
+
+.password-visibility > form > button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 0 12px 0 24px;
+  border-radius: 6px;
+  background: var(--color-primary);
+  color: #f9f9f9;
+  border: 0;
+  font-family: inherit;
+  letter-spacing: 1px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.password-visibility form > button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.password-visibility p > a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.password-control input {
+  --color-primary: #0088ff;
+  --color-muted: #5a616c;
+  border: 0;
+  width: 100%;
+  height: 60px;
+  background: transparent;
+  font-family: inherit;
+  font-size: 16px;
+  outline: none;
+}
+
+.password-visibility .password-control {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.password-control > span {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  left: 0;
+  font-size: 22px;
+  pointer-events: none;
+  color: var(--color-muted);
+  transition: 0.3s;
+}
+
+.password-control input {
+  padding: 0 24px 0 36px;
+  color: rgb(255 255 255 / 96%);
+  height: 72px;
+  transition: 0.3s;
+}
+
+.password-control :is(input:focus, input:valid) ~ label {
+  translate: -36px -44px;
+  scale: 0.875;
+}
+
+.password-control input:focus ~ label {
+  color: var(--color-primary);
+}
+
+.password-control .border {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background: rgb(255 255 255 / 6%);
+}
+
+.password-control .border::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--color-primary);
+  transform: scaleX(0);
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.password-control input:focus ~ .border::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+.password-control :is(input:focus, input:valid) ~ span {
+  color: rgb(255 255 255 / 96%);
+}
+
+.password-control label {
+  position: absolute;
+  top: 50%;
+  left: 30px;
+  translate: 0 -50%;
+  color: var(--color-muted);
+  pointer-events: none;
+  text-transform: capitalize;
+  transition: 0.4s;
+}
+
+.password-control {
+  margin-bottom: 20px;
+}
+
+.password-control input {
+  padding-right: 50px;
+}
+
+.password-control button {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  height: 36px;
+  width: 36px;
+  translate: 0 -50%;
+  cursor: pointer;
+}
+
+.password-control button span {
+  color: var(--color-muted);
+  transition: 0.3s;
+}
+
+.password-control button:hover span {
+  color: rgb(255 255 255 / 96%);
+}

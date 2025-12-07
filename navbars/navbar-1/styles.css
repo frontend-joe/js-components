@@ -1,0 +1,76 @@
+body {
+  background: url("bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Euclid Circular B", "Poppins";
+  height: 100vh;
+}
+
+nav {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  height: 72px;
+  border-radius: 36px;
+  background: rgb(255 255 255 / 6%);
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  height: 32px;
+}
+
+.end {
+  display: flex;
+  align-items: center;
+  width: 100px;
+}
+
+.end:last-child {
+  justify-content: flex-end;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+}
+
+.menu > ul {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.menu:hover .submenu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.submenu {
+  position: absolute;
+  top: 72px;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  background: red;
+  transition: 0.3s;
+}
+
+.submenu > div {
+  display: none;
+}
+
+.submenu > div.visible {
+  display: grid;
+}

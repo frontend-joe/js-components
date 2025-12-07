@@ -1,0 +1,237 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #212531;
+  color: var(--color-muted);
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  font-family: "Euclid Circular B";
+}
+
+:root {
+  --color-primary: #4672ff;
+  --color-dark: #426df8;
+  --color-muted: #747b92;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+input,
+button {
+  font-family: inherit;
+  color: inherit;
+}
+
+button {
+  padding: 0;
+  cursor: pointer;
+}
+
+p {
+  font-size: 12px;
+}
+
+p a {
+  color: var(--color-primary);
+}
+
+.card {
+  display: flex;
+  align-content: stretch;
+  width: 660px;
+  height: 360px;
+  border-radius: 0.5rem;
+  background: rgb(0 0 0 / 32%);
+  box-shadow: 0 12px 80px rgba(0, 0, 0, 0.12);
+}
+
+.card-nav {
+  position: relative;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 148px;
+}
+
+.card-nav .active-bar {
+  position: absolute;
+  top: 33.33%;
+  left: 0;
+  width: 5px;
+  border-radius: 2.5px;
+  height: 33.33%;
+  background: var(--color-primary);
+  transition: 0.4s ease-in-out;
+}
+
+.card-nav li {
+  flex: 1 1 auto;
+  display: grid;
+  place-items: center;
+}
+
+.card-nav li button.active {
+  color: #f9f9f9;
+  opacity: 1;
+}
+
+.card-nav button {
+  background: transparent;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  opacity: 0.75;
+  transition: 0.3s;
+}
+
+.card-nav button:not(.active):hover {
+  opacity: 1;
+}
+
+.card-nav button i {
+  font-size: 20px;
+}
+
+.card-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin: -48px 0;
+  flex: 0 0 300px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--color-primary);
+}
+
+.card-hero-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: 0.5s ease-in-out;
+}
+
+.card-hero-content {
+  height: 456px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h2,
+h3 {
+  text-align: left;
+  font-weight: 400;
+  margin: 0;
+  padding-left: 24px;
+}
+
+.card-hero h2 {
+  color: #f9f9f9;
+  margin: 0 0 2px;
+}
+
+.card-hero h3 {
+  color: #f9f9f9;
+  opacity: 0.75;
+  font-size: 13px;
+}
+
+.card-hero img {
+  width: 100%;
+}
+
+.card-form {
+  position: relative;
+  overflow: hidden;
+  padding: 24px;
+  width: 400px;
+}
+
+.card-form .forms {
+  position: absolute;
+  height: 200%;
+  left: 0;
+  top: 0;
+  transition: 0.5s ease-in-out;
+}
+
+.card-form form {
+  height: 360px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+.card-form label {
+  font-size: 13px;
+  color: var(--color-muted);
+}
+
+.control {
+  position: relative;
+}
+
+.control input {
+  background: transparent;
+  border: 1px solid rgb(255 255 255 / 14%);
+  border-radius: 6px;
+  width: 100%;
+  height: 40px;
+  padding: 0 12px;
+}
+
+.control input:focus {
+  outline: 2px solid var(--color-primary);
+}
+
+.control input::placeholder {
+  color: #bdbcd2;
+}
+
+.control input:focus ~ i {
+  color: var(--color-dark);
+}
+
+.control i {
+  color: var(--color-muted);
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  translate: 0 -50%;
+  transition: 0.3s;
+}
+
+.card-form form > button {
+  height: 40px;
+  padding: 12px 20px;
+  border-radius: 6px;
+  color: #f9f9f9;
+  letter-spacing: 1px;
+  border: 0;
+  margin-top: 12px;
+  background: var(--color-dark);
+}
+
+p.footer {
+  opacity: 0.75;
+}
