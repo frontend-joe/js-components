@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  background: #fafafa;
+  background: #f2f3fe;
   color: #4b5679;
   height: 100vh;
   display: grid;
@@ -152,9 +152,6 @@ h2 {
 .form h2 {
   font-size: 22px;
   text-align: center;
-}
-
-.form a {
 }
 
 .sso {
