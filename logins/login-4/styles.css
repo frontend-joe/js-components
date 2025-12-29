@@ -1,0 +1,256 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f2f3fe;
+  color: #4b5679;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  font-family: "Euclid Circular B", "Poppins";
+}
+
+:root {
+  --color-primary: #6368e6;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  width: 660px;
+  height: 440px;
+  border-radius: 32px;
+  background: #ffffff;
+  box-shadow: 0 12px 80px rgba(0, 0, 0, 0.12);
+}
+
+.card-bg {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 860px;
+  height: 440px;
+  rotate: -45deg;
+  transform-origin: 0% 100%;
+  background: var(--color-primary);
+}
+
+.card-bg-2 {
+  background: var(--color-primary);
+  rotate: 0deg;
+  opacity: 0;
+  right: 0;
+  left: auto;
+  transform-origin: 100% 100%;
+}
+
+@keyframes card-bg-signup {
+  0% {
+    rotate: -45deg;
+  }
+  50% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    rotate: 0deg;
+  }
+  50.01%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes card-bg-signin {
+  0% {
+    opacity: 0;
+    rotate: 0deg;
+  }
+  50% {
+    rotate: 0deg;
+    opacity: 0;
+  }
+  50%,
+  100% {
+    rotate: 0;
+  }
+  50.01%,
+  100% {
+    opacity: 1;
+  }
+  100% {
+    rotate: -45deg;
+  }
+}
+
+@keyframes card-bg-2-signup {
+  0%,
+  50% {
+    rotate: 0;
+    opacity: 0;
+  }
+  50.01% {
+    opacity: 1;
+    rotate: 0deg;
+  }
+  100% {
+    opacity: 1;
+    rotate: 45deg;
+  }
+}
+
+@keyframes card-bg-2-signin {
+  0% {
+    rotate: 45deg;
+    opacity: 1;
+  }
+  50%,
+  100% {
+    rotate: 0deg;
+    opacity: 1;
+  }
+  50.01%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.card-bg-1.signup {
+  animation: card-bg-signup 1.5s both;
+}
+
+.card-bg-1.signin {
+  animation: card-bg-signin 1.5s both;
+}
+
+.card-bg-2.signup {
+  animation: card-bg-2-signup 1.5s both;
+}
+
+.card-bg-2.signin {
+  animation: card-bg-2-signin 1.5s both;
+}
+
+.logo {
+  position: absolute;
+  top: 72px;
+  z-index: 2;
+  height: 24px;
+  transition: 0.3s;
+  opacity: 0;
+}
+
+.logo-1 {
+  translate: -180px 0;
+  left: 48px;
+}
+
+.logo-2 {
+  translate: 180px 0;
+  right: 48px;
+}
+
+.card-bg.signin ~ .logo-1,
+.card-bg.signup ~ .logo-2 {
+  opacity: 1;
+  translate: 0;
+  transition: 0.3s 1.25s;
+}
+
+.form {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 50%;
+  display: grid;
+  place-items: center;
+}
+
+.form h2 {
+  text-align: center;
+  font-weight: 500;
+}
+
+.form form {
+  display: grid;
+  gap: 12px;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.form a {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #a7a7ad;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+}
+
+.form p {
+  font-size: 14px;
+  text-align: center;
+  margin: 8px 0;
+  color: #a7a7ad;
+}
+
+.form a em {
+  display: block;
+  font-style: normal;
+  font-size: 15px;
+  color: var(--color-primary);
+}
+
+.form.signup {
+  translate: 100% 0;
+}
+
+.form.signup form {
+  translate: 320px 0;
+}
+
+.form.signin form {
+  translate: -320px 0;
+}
+
+.form.signup.active form,
+.form.signin.active form {
+  opacity: 1;
+  translate: 0;
+  transition: 0.5s 1s;
+}
+
+form input {
+  width: 260px;
+  padding: 0 12px;
+  font-size: 14px;
+  background: #f4f4f7;
+}
+
+form input::placeholder {
+  color: #a7a7ad;
+}
+
+input,
+button {
+  border: 0;
+  border-radius: 8px;
+  height: 40px;
+  font-family: inherit;
+  font-size: 16px;
+}
+
+form button {
+  color: #f9f9f9;
+  background: var(--color-primary);
+  letter-spacing: 1px;
+  font-size: 14px;
+}
