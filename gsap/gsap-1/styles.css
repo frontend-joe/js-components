@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+a {
+  color: var(--color-surface-white);
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  color: #f9f9f9;
+  text-transform: uppercase;
+  font-family: "Euclid Circular A", "Poppins";
+}
+
+h2 {
+  font-size: clamp(2rem, 7vw, 10rem);
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  margin-right: -0.5em;
+  width: 90vw;
+  max-width: 1200px;
+  text-transform: none;
+}
+
+section {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  position: fixed;
+  visibility: hidden;
+}
+section .outer,
+section .inner {
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+}
+section .bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  background-size: cover;
+  background-position: center;
+}
+section .bg h2 {
+  z-index: 999;
+}
+section .bg .clip-text {
+  overflow: hidden;
+}
+
+.first .bg {
+  background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.6) 50%,
+      rgba(0, 0, 0, 0.1) 100%
+    ),
+    url("1.jpg");
+}
+
+.second .bg {
+  background: #010618;
+}
+
+.third .bg {
+  background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.6) 50%,
+      rgba(0, 0, 0, 0.1) 100%
+    ),
+    url("2.jpg");
+}
+
+h2 * {
+  will-change: transform;
+}
