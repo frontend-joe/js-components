@@ -1,0 +1,198 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  margin: 0;
+  background: #616284;
+  color: #7a7b92;
+  font-family: "Euclid Circular A", "Poppins";
+}
+
+.sidebar {
+  --width-open: 260px;
+  --width-closed: 64px;
+
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  bottom: 30px;
+  width: var(--width-closed);
+  border-radius: 16px;
+  background: #1c1b2a;
+  transition: width 0.3s;
+}
+
+.sidebar.open {
+  width: var(--width-open);
+}
+
+button {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.toggle {
+  position: absolute;
+  z-index: 2;
+  top: 24px;
+  right: -12px;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #3e3d54;
+  color: #8f8d9b;
+  box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+  transition: 0.3s;
+}
+
+.toggle:hover {
+  color: #f9f9f9;
+}
+
+.open .toggle {
+  rotate: 180deg;
+}
+
+.search {
+  position: relative;
+  padding: 16px 0;
+  margin: 0 10px;
+  width: calc(var(--width-closed) - 20px);
+  transition: 0.3s;
+}
+
+.open .search {
+  width: calc(var(--width-open) - 20px);
+}
+
+.search span {
+  position: absolute;
+  top: 26px;
+  left: 12px;
+  color: #68687a;
+}
+
+.search input {
+  background: rgb(255 255 255 / 6%);
+  border: 0;
+  border-radius: 8px;
+  width: 100%;
+  height: 44px;
+  font-size: 17px;
+  padding-left: 30px;
+  font-family: inherit;
+  transition: 0.3s;
+}
+
+.search input::placeholder {
+  color: transparent;
+}
+
+.open .search input::placeholder {
+  color: #68687a;
+}
+
+.open .search input {
+  padding-left: 52px;
+}
+
+.inner {
+  position: absolute;
+  inset: 0;
+  width: 260px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  height: 72px;
+  width: var(--width-closed);
+  padding: 0 20px;
+  background: rgb(0 0 0 / 15%);
+  border-radius: 16px 16px 0 0;
+  transition: 0.3s;
+}
+
+.open .header {
+  width: var(--width-open);
+}
+
+.header h1 {
+  margin-left: 12px;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  color: #f9f9f9;
+  opacity: 0;
+}
+
+.logo {
+  height: 28px;
+}
+
+.menu {
+  position: relative;
+  display: grid;
+}
+
+.menu::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 56px;
+  width: 6px;
+  background: #656aff;
+  translate: 0 var(--top);
+  transition: 0.3s;
+}
+
+.menu button {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  height: 56px;
+  width: var(--width-closed);
+  font-size: 17px;
+  padding: 0 22px;
+  color: inherit;
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.open .menu button {
+  width: var(--width-open);
+}
+
+.menu button:hover:not(.active) {
+  color: rgb(255 255 255 / 90%);
+  background: rgb(255 255 255 / 2%);
+}
+
+.menu button.active {
+  color: white;
+  background: rgb(255 255 255 / 4%);
+  opacity: 1;
+  cursor: default;
+}
+
+.menu button p {
+  opacity: 0;
+}
+
+.open :is(button p, h1) {
+  opacity: 1;
+}
+
+.menu button img {
+  width: 24px;
+  height: 24px;
+}
