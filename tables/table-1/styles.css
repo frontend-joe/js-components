@@ -1,0 +1,90 @@
+body {
+  background: #eaeaf1;
+  color: #616678;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  height: 100vh;
+  font-family: "Euclid Circular B", "Poppins";
+}
+
+.wrapper {
+  overflow: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 30px 40px rgb(97 102 120 / 12%);
+  font-size: 12px;
+  width: 460px;
+  padding: 12px 8px;
+}
+
+.card table {
+  border-collapse: collapse;
+  text-align: left;
+  width: 100%;
+}
+
+.card table thead {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.card tr:nth-child(odd) td {
+  background: #f9f9fc;
+}
+
+.card table th {
+  font-weight: 400;
+  user-select: none;
+  text-transform: capitalize;
+  padding: 0 10px;
+  color: #616678bf;
+  border-bottom: 1px solid rgb(240, 240, 240);
+}
+
+.card table tr :is(td, th):first-child {
+  vertical-align: middle;
+  padding-left: 12px;
+}
+
+.card table :is(th, td) {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  height: 38px;
+  vertical-align: middle;
+}
+
+.card table tr :is(th, td):not(:last-child) {
+  border-right: 1px solid #eceaf2;
+}
+
+.card table .cell-content {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  translate: 0 -50%;
+}
+
+.card table th .draggable {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 6px;
+  cursor: col-resize;
+}
+
+.chip {
+  background: #eaeaf1;
+  border-radius: 10px;
+  font-size: 8px;
+  padding: 4px 6px;
+}

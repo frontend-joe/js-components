@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tables</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="card">
+      <div class="wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>
+                <input type="checkbox" />
+                <span class="draggable" onpointerdown="initResize(0)"></span>
+              </th>
+              <th>
+                Name
+                <span class="draggable" onpointerdown="initResize(1)"></span>
+              </th>
+              <th>
+                Level
+                <span class="draggable" onpointerdown="initResize(2)"></span>
+              </th>
+              <th>
+                Skills
+                <span class="draggable" onpointerdown="initResize(3)"></span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="checkbox" /></td>
+              <td><span class="cell-content">Joe Bloggs</span></td>
+              <td><span class="cell-content">Intermediate</span></td>
+              <td>
+                <span class="cell-content">
+                  <span class="chip html">HTML</span>
+                  <span class="chip css">CSS</span>
+                  <span class="chip js">JavaScript</span>
+                </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td><input type="checkbox" /></td>
+              <td><span class="cell-content">Harry Hill</span></td>
+              <td><span class="cell-content">Expert</span></td>
+              <td>
+                <span class="cell-content">
+                  <span class="chip js">JavaScript</span>
+                  <span class="chip react">React</span>
+                </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td><input type="checkbox" /></td>
+              <td><span class="cell-content">Bill Yates</span></td>
+              <td><span class="cell-content">Beginner</span></td>
+              <td>
+                <span class="cell-content">
+                  <span class="chip html">HTML</span>
+                  <span class="chip css">CSS</span>
+                </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td><input type="checkbox" /></td>
+              <td><span class="cell-content">Jane Doe</span></td>
+              <td><span class="cell-content">Expert</span></td>
+              <td>
+                <span class="cell-content">
+                  <span class="chip js">JavaScript</span>
+                  <span class="chip react">React</span>
+                  <span class="chip css">CSS</span>
+                </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td><input type="checkbox" /></td>
+              <td><span class="cell-content">Alice Gobel</span></td>
+              <td><span class="cell-content">Beginner</span></td>
+              <td>
+                <span class="cell-content">
+                  <span class="chip html">HTML</span>
+                  <span class="chip css">CSS</span>
+                </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td><input type="checkbox" /></td>
+              <td><span class="cell-content">Raul Jimenez</span></td>
+              <td><span class="cell-content">Intermediate</span></td>
+              <td>
+                <span class="cell-content">
+                  <span class="chip js">JavaScript</span>
+                  <span class="chip html">HTML</span>
+                  <span class="chip css">CSS</span>
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script type="text/javascript" src="main.js"></script>
+  </body>
+</html>
