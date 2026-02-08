@@ -1,0 +1,273 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-primary: #8276dd;
+  --color-muted: #afb0c5;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  height: 100vh;
+  background: #f9f6fc;
+  color: #6a677a;
+  font-family: "Euclid Circular A", "Poppins";
+}
+
+.blob,
+.orbit {
+  position: fixed;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+.blob {
+  width: 85vw;
+  max-width: 550px;
+
+  aspect-ratio: 1 / 1;
+}
+
+@keyframes spin {
+  100% {
+    rotate: 1turn;
+  }
+}
+
+.orbit {
+  scale: 0.995;
+  width: 95vw;
+  max-width: 720px;
+  aspect-ratio: 1 / 1;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  animation: spin 50s infinite linear;
+}
+
+.orbit::before,
+.orbit::after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  aspect-ratio: 1 / 1;
+  border-radius: inherit;
+  background: #f3c076;
+}
+
+.orbit::before {
+  top: 50%;
+  width: 18px;
+  left: -9px;
+}
+
+.orbit::after {
+  top: 50%;
+  right: -12px;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+  background: #ffffff;
+  border-radius: 32px;
+  padding: 10px 0 34px;
+  width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 10px 50px rgb(96 68 121 / 10%);
+}
+
+.hero {
+  position: relative;
+  height: 190px;
+  width: 94%;
+  border-radius: 22px;
+  background: url("image.png");
+  background-position: 0;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.toggle {
+  position: absolute;
+  left: 0;
+  bottom: 6px;
+  display: flex;
+  width: 100%;
+}
+
+.toggle::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 6px;
+  width: calc(50% - 6px);
+  height: 100%;
+  border-radius: 20px;
+  background: #f9f9f9;
+  pointer-events: none;
+  translate: 100% 0;
+  transition: 0.3s;
+  z-index: 0;
+}
+
+.toggle.login-active::after {
+  translate: 0;
+}
+
+.toggle button {
+  height: 36px;
+  min-height: 36px;
+  width: calc(50% - 9px);
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 13px;
+  border-radius: 32px;
+  transition: 0.3s;
+}
+
+.toggle button:hover {
+  background: rgb(255 255 255 / 12%);
+}
+
+.toggle button:first-child {
+  margin-left: 6px;
+  margin-right: 3px;
+}
+
+.toggle button:last-child {
+  margin-right: 6px;
+  margin-left: 3px;
+}
+
+.toggle button span {
+  position: relative;
+  z-index: 1;
+  transition: 0.3s;
+}
+
+.toggle.login-active button:first-child {
+  color: var(--color-primary);
+}
+
+.toggle.login-active button:last-child {
+  color: #f9f9f9;
+}
+
+.toggle button:last-child {
+  color: var(--color-primary);
+}
+
+.forms {
+  position: relative;
+  height: 300px;
+  width: 100%;
+}
+
+form {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  height: 100%;
+  padding: 28px 24px 0;
+  margin: 0 0 20px;
+  transition: 0.5s;
+  opacity: 0.6;
+}
+
+form h2 {
+  margin-bottom: 12px;
+}
+
+.register {
+  translate: 100% 0;
+}
+
+.login {
+  translate: -100%;
+}
+
+.active {
+  translate: 0;
+  opacity: 1;
+}
+
+h2,
+h3 {
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 18px;
+  margin: 0 0 6px;
+}
+
+h3 {
+  color: var(--color-muted);
+  font-size: 13px;
+  margin: 0 0 32px;
+}
+
+input,
+button,
+a {
+  height: 52px;
+  min-height: 52px;
+  font-family: inherit;
+  font-size: 15px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+}
+
+input {
+  width: 100%;
+  background: #f4f1f7;
+  outline: none;
+  color: inherit;
+  box-shadow: 0 0 0 2px transparent;
+}
+
+input::placeholder {
+  color: var(--color-muted);
+}
+
+input:focus {
+  box-shadow: 0 0 0 2px var(--color-primary);
+}
+
+button {
+  color: #f9f9f9;
+  justify-content: center;
+  background: var(--color-primary);
+}
+
+a {
+  justify-content: center;
+  font-size: 14px;
+  color: var(--color-primary);
+}
+
+p {
+  margin: 32px 24px 0;
+  font-size: 12px;
+  color: var(--color-muted);
+}
