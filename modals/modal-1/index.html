@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Modal2 Vanilla JS</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Modal Overlay -->
+    <div id="modalOverlay" class="overlay default"></div>
+
+    <!-- Modal Dialog -->
+    <div id="modalDialog" class="modal default">
+      <header>
+        <h2>Sign Up</h2>
+        <h3>Try Hologram today.</h3>
+      </header>
+
+      <form>
+        <input autocomplete="off" type="email" placeholder="Email" />
+        <input type="text" placeholder="Password" />
+        <button class="signup-button" id="signupBtn" type="button">
+          <p>Sign up free</p>
+          <span class="material-symbols-outlined">trending_flat</span>
+        </button>
+      </form>
+
+      <p>No credit card information required</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="modal-footer">
+      <div class="container">
+        <article>
+          <h2>Try Hologram today.</h2>
+          <button class="signup-button" id="openModalBtn" type="button">
+            <p>Sign up free</p>
+            <span class="material-symbols-outlined">trending_flat</span>
+          </button>
+        </article>
+
+        <section class="top">
+          <img src="logo.svg" alt="logo" />
+          <ul>
+            <li>
+              <h3>Resources</h3>
+              <a>Usage</a>
+              <a>Docs</a>
+              <a>Support</a>
+              <a>Hardware</a>
+            </li>
+            <li>
+              <h3>Pricing</h3>
+              <a>Overview</a>
+              <a>Flexible Data</a>
+              <a>High Volume</a>
+              <a>Enterprise</a>
+            </li>
+            <li>
+              <h3>Developers</h3>
+              <a>Forum</a>
+              <a>Projects</a>
+              <a>Open Source</a>
+              <a>GitHub</a>
+            </li>
+            <li>
+              <h3>Company</h3>
+              <a>About Us</a>
+              <a>Blog</a>
+              <a>Partnerships</a>
+              <a>Careers</a>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </footer>
+    <script src="main.js"></script>
+  </body>
+</html>
