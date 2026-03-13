@@ -1,0 +1,131 @@
+body {
+  background: #17132a url("./bg.svg");
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(rgb(0 0 0 / 75%), rgb(0 0 0 / 0%));
+}
+
+.sidebar {
+  position: absolute;
+  top: 20px;
+  left: 16px;
+  bottom: 38px;
+  z-index: 2;
+  width: 56px;
+  border-radius: 14px;
+  background: rgb(0 0 0 / 12%);
+  backdrop-filter: blur(10px);
+  transition: width 0.45s;
+}
+
+.sidebar.open {
+  width: 190px;
+}
+
+.sidebar button {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.sidebar .material-symbols-outlined {
+  font-size: 18px;
+}
+
+.inner {
+  position: absolute;
+  inset: 0;
+  width: 190px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar header {
+  display: flex;
+  align-items: center;
+  height: 64px;
+  padding: 0 6px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.sidebar-burger {
+  width: 44px;
+  height: 72px;
+  display: grid;
+  place-items: center;
+  color: #f9f9f9;
+}
+
+.sidebar header img {
+  height: 15px;
+}
+
+.sidebar nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 6px;
+  gap: 2px;
+}
+
+.sidebar nav button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 44px;
+  width: 44px;
+  padding: 0 12px;
+  border-radius: 8px;
+  font-family: "Euclid Circular B";
+  font-size: 14px;
+  text-transform: capitalize;
+  line-height: 1;
+  color: #f9f9f9;
+  opacity: 0.7;
+  transition: 0.3s;
+}
+
+.sidebar nav button:hover {
+  background: rgb(255 255 255 / 6%);
+  opacity: 1;
+}
+
+.sidebar nav button:last-child {
+  margin-top: auto;
+  margin-bottom: 8px;
+}
+
+.sidebar:not(.open) nav button:hover p {
+  opacity: 1;
+  background: rgb(0 0 0 / 32%);
+  backdrop-filter: blur(10px);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  translate: 16px 0;
+}
+
+.sidebar header img,
+.sidebar nav button p {
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.25s;
+}
+
+.sidebar.open :is(nav button p, header img) {
+  opacity: 1;
+}
+
+.sidebar.open nav button {
+  width: 100%;
+}
