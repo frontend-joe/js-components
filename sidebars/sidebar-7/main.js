@@ -16,11 +16,7 @@ document.addEventListener("mousemove", (e) => {
   if (!isResizing) return;
 
   const sidebarRect = sidebar.getBoundingClientRect();
-
-  // Calculate width relative to sidebar's left edge
   let newWidth = e.clientX - sidebarRect.left;
-
-  // Clamp width
   if (newWidth < MIN_WIDTH) newWidth = MIN_WIDTH;
   if (newWidth > MAX_WIDTH) newWidth = MAX_WIDTH;
 
