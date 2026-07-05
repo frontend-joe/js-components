@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sidebars</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="sidebar-inner">
+        <header class="sidebar-header">
+          <div class="brand">
+            <span class="brand-mark">
+              <svg viewBox="0 0 32 32" aria-hidden="true">
+                <path d="M7 27 L16 6 L20.5 15 L12 27 Z" fill="#a78bfa" />
+                <path d="M16.5 27 L24 9 L28 27 Z" fill="#6d4fd6" />
+              </svg>
+            </span>
+            <span class="brand-name">Nolito<sup>®</sup></span>
+          </div>
+          <button
+            type="button"
+            class="collapse-btn"
+            id="collapseBtn"
+            aria-label="Toggle sidebar"
+          >
+            <i data-lucide="panel-left"></i>
+          </button>
+        </header>
+
+        <div class="search">
+          <i data-lucide="search"></i>
+          <input type="text" placeholder="Search" aria-label="Search" />
+          <span class="kbd">/</span>
+        </div>
+        <ul class="nav">
+          <li>
+            <button type="button" class="active">
+              <i data-lucide="house"></i>
+              <span>Dashboard</span>
+            </button>
+          </li>
+          <li>
+            <button type="button">
+              <i data-lucide="layers"></i>
+              <span>CMS</span>
+            </button>
+          </li>
+          <li>
+            <button type="button">
+              <i data-lucide="clipboard-list"></i>
+              <span>Forms</span>
+            </button>
+          </li>
+          <li>
+            <button type="button">
+              <i data-lucide="mouse-pointer-click"></i>
+              <span>Clicks</span>
+            </button>
+          </li>
+          <li>
+            <button type="button">
+              <i data-lucide="split"></i>
+              <span>Split Testing</span>
+            </button>
+          </li>
+        </ul>
+
+        <hr class="divider" />
+
+        <ul class="nav apps">
+          <li>
+            <button type="button">
+              <span class="app-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    fill="#146EF5"
+                    d="M17.802 8.56s-1.79 5.615-1.932 6.092c-.05-.477-1.406-9.87-1.406-9.87-3.19 0-4.885 2.263-5.786 4.665 0 0-2.184 5.62-2.362 6.093-.011-.44-.33-6.048-.33-6.048-.19-2.946-2.888-4.71-5.076-4.71L3.696 19.13c3.343-.001 5.14-2.264 6.084-4.666 0 0 1.917-4.943 1.997-5.16.014.2 1.407 9.826 1.407 9.826 3.357 0 5.153-2.106 6.126-4.428L24 4.87c-3.343 0-5.106 2.264-6.198 3.69z"
+                  />
+                </svg>
+              </span>
+              <span>Webflow</span>
+            </button>
+          </li>
+          <li>
+            <button type="button">
+              <span class="app-icon app-icon-dark">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="#ffffff" d="M6 3h12v6h-6zM6 9h6l6 6h-6v6l-6-6z" />
+                </svg>
+              </span>
+              <span>Framer</span>
+            </button>
+          </li>
+          <li>
+            <button type="button">
+              <span class="app-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="#6d4fd6" d="M4 5h16v3h-6.5v11h-3V8H4z" />
+                </svg>
+              </span>
+              <span>Typeform</span>
+            </button>
+          </li>
+        </ul>
+
+        <div class="theme-toggle">
+          <i data-lucide="sun"></i>
+          <button
+            type="button"
+            class="switch on"
+            id="themeSwitch"
+            aria-label="Toggle theme"
+          >
+            <span></span>
+          </button>
+          <i data-lucide="moon"></i>
+        </div>
+      </div>
+    </aside>
+    <script type="text/javascript" src="main.js"></script>
+  </body>
+</html>

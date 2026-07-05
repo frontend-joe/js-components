@@ -1,0 +1,386 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 24px;
+  background: #e9e9ec;
+  font-family: "Euclid Circular B", system-ui, sans-serif;
+  color: #1c1c1e;
+  transition: background 0.3s;
+}
+
+.sidebar {
+  position: fixed;
+  width: 340px;
+  top: 24px;
+  left: 24px;
+  bottom: 32px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgb(0 0 0 / 8%);
+  transition:
+    width 0.35s ease,
+    background 0.3s,
+    box-shadow 0.3s;
+}
+
+.sidebar.collapsed {
+  width: 64px;
+}
+
+.sidebar-inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 18px 8px;
+  overflow: hidden;
+}
+
+/* Header */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 34px;
+  margin-bottom: 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.sidebar.collapsed .brand {
+  display: none;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+}
+
+.brand-mark svg {
+  width: 26px;
+  height: 26px;
+}
+
+.brand-name {
+  font-size: 22px;
+  font-weight: 600;
+  white-space: nowrap;
+  letter-spacing: -0.02em;
+}
+
+.brand-name sup {
+  font-size: 10px;
+  font-weight: 500;
+  color: #9b9ba3;
+}
+
+.collapse-btn {
+  position: absolute;
+  top: 12px;
+  right: 8px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 11px;
+  background: #f5f5f7;
+  color: #6b6b73;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.collapse-btn:hover {
+  background: #eaeaec;
+}
+
+/* Search */
+.search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 46px;
+  padding: 0 14px;
+  margin-bottom: 16px;
+  border: 1px solid #c3c3c7;
+  border-radius: 13px;
+  color: #9b9ba3;
+}
+
+.search input {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: 15px;
+  color: #1c1c1e;
+}
+
+.search input::placeholder {
+  color: #9b9ba3;
+}
+
+.kbd {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #c3c3c7;
+  border-radius: 7px;
+  font-size: 13px;
+  color: #9b9ba3;
+}
+
+.sidebar.collapsed .kbd {
+  display: none;
+}
+
+/* Section label */
+.section-label {
+  margin: 0 0 8px 6px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #a3a3ac;
+  white-space: nowrap;
+}
+
+/* Nav */
+.nav {
+  list-style: none;
+  margin: 0 0 6px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nav button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  height: 48px;
+  border: 0;
+  border-radius: 13px;
+  padding: 0 14px;
+  background: transparent;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  color: #1c1c1e;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.nav button span:not(.app-icon) {
+  flex: 1 1 auto;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.nav button:hover {
+  background: #f5f5f7;
+}
+
+.nav button.active {
+  background: #f5f5f7;
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  border: 0;
+  margin: 10px 4px 14px;
+  background: #ebebef;
+}
+
+/* App icons */
+.app-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+  margin: 0 -3px;
+  border-radius: 8px;
+  background: #f5f5f7;
+}
+
+.app-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.app-icon-dark {
+  background: #1c1c1e;
+}
+
+/* Theme toggle */
+.theme-toggle {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding-top: 14px;
+  color: #9b9ba3;
+}
+
+.switch {
+  position: relative;
+  flex: 0 0 auto;
+  width: 52px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: #3a3a4d;
+  cursor: pointer;
+  transition: background 0.25s;
+}
+
+.switch.on {
+  background: #f5a623;
+}
+
+.switch span {
+  position: absolute;
+  top: 3px;
+  left: 27px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 25%);
+  transition: left 0.25s;
+}
+
+.switch.on span {
+  left: 3px;
+}
+
+/* Theme toggle icon states — active icon matches current theme */
+.theme-toggle .lucide:first-child {
+  color: #f5a623;
+}
+
+body.dark .theme-toggle .lucide:first-child {
+  color: #6f6f79;
+}
+
+body.dark .theme-toggle .lucide:last-child {
+  color: #f0f0f4;
+}
+
+/* Lucide icon sizing */
+.sidebar .lucide {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  stroke-width: 2;
+}
+
+/* ---------- Dark mode ---------- */
+body.dark {
+  background: #141418;
+  color: #f3f3f5;
+}
+
+body.dark .sidebar {
+  background: #1c1c22;
+  box-shadow: 0 20px 50px rgb(0 0 0 / 45%);
+}
+
+body.dark .brand-name {
+  color: #f3f3f5;
+}
+
+body.dark .brand-name sup,
+body.dark .section-label {
+  color: #6f6f79;
+}
+
+body.dark .collapse-btn {
+  background: #1c1c22;
+  border-color: #2b2b33;
+  color: #b8b8c0;
+}
+
+body.dark .collapse-btn:hover {
+  background: #26262e;
+}
+
+body.dark .search {
+  border-color: #2b2b33;
+  color: #8b8b95;
+}
+
+body.dark .search input {
+  color: #f3f3f5;
+}
+
+body.dark .search input::placeholder,
+body.dark .kbd {
+  color: #8b8b95;
+}
+
+body.dark .kbd {
+  border-color: #2b2b33;
+}
+
+body.dark .nav button {
+  color: #eaeaee;
+}
+
+body.dark .nav button:hover {
+  background: #26262e;
+}
+
+body.dark .nav button.active {
+  background: #2f2f38;
+}
+
+body.dark .divider {
+  background: #2b2b33;
+}
+
+body.dark .app-icon {
+  background: #26262e;
+}
+
+body.dark .app-icon-dark {
+  background: #0d0d10;
+}
+
+/* Smooth colour transitions when toggling theme */
+.sidebar-inner
+  :is(.collapse-btn, .search, .kbd, .nav button, .divider, .app-icon) {
+  transition:
+    background 0.3s,
+    border-color 0.3s,
+    color 0.3s;
+}
