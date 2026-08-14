@@ -271,6 +271,10 @@ p.footer {
     padding: 0;
   }
 
+  .card-nav {
+    padding: 0;
+  }
+
   .card-hero {
     margin: -30px 0;
     height: auto;
@@ -279,7 +283,6 @@ p.footer {
   h2,
   h3 {
     display: block;
-    padding-left: 24px;
   }
 
   .card-hero img {
