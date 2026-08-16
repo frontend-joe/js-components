@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sidebars</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="sidebar-inner">
+        <div class="brand">
+          <span class="brand-mark">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <rect width="32" height="32" rx="9" fill="currentColor" />
+              <path
+                d="M13 11.5V10a3 3 0 0 1 6 0v1.5"
+                fill="none"
+                stroke="#ffffff"
+                stroke-width="1.8"
+                stroke-linecap="round"
+              />
+              <path
+                d="M8.5 11.5h15v6.2a6.5 6.5 0 0 1-6.5 6.5h-2a6.5 6.5 0 0 1-6.5-6.5z"
+                fill="#ffffff"
+              />
+            </svg>
+          </span>
+          <span class="brand-name label">Shopping</span>
+        </div>
+
+        <button
+          type="button"
+          class="collapse-btn"
+          id="collapseBtn"
+          aria-label="Toggle sidebar"
+        >
+          <i data-lucide="panel-left"></i>
+        </button>
+
+        <hr class="divider" />
+
+        <div class="profile">
+          <span class="avatar">
+            <img src="avatar.png" alt="" />
+          </span>
+          <span class="profile-text label">
+            <span class="profile-name">Ajendra S.</span>
+            <span class="profile-role">UI/UX Designer</span>
+          </span>
+        </div>
+
+        <ul class="nav">
+          <li>
+            <button type="button" class="active">
+              <i data-lucide="layout-grid"></i>
+              <span class="label">Dashboard</span>
+            </button>
+          </li>
+          <li>
+            <button type="button">
+              <i data-lucide="shopping-bag"></i>
+              <span class="label">Products</span>
+            </button>
+          </li>
+          <li>
+            <button type="button">
+              <i data-lucide="list-tree"></i>
+              <span class="label">Categories</span>
+            </button>
+          </li>
+          <li>
+            <button type="button">
+              <i data-lucide="receipt-text"></i>
+              <span class="label">Orders</span>
+            </button>
+          </li>
+          <li>
+            <button type="button">
+              <i data-lucide="users"></i>
+              <span class="label">Customers</span>
+            </button>
+          </li>
+          <li>
+            <button type="button">
+              <i data-lucide="gift"></i>
+              <span class="label">Sales Offers</span>
+            </button>
+          </li>
+          <li>
+            <button type="button">
+              <i data-lucide="pie-chart"></i>
+              <span class="label">Dealership</span>
+            </button>
+          </li>
+          <li>
+            <button type="button">
+              <i data-lucide="map-pin"></i>
+              <span class="label">Locations</span>
+            </button>
+          </li>
+          <li>
+            <button type="button">
+              <i data-lucide="settings"></i>
+              <span class="label">Settings</span>
+            </button>
+          </li>
+          <li>
+            <button type="button">
+              <i data-lucide="log-out"></i>
+              <span class="label">Logout</span>
+            </button>
+          </li>
+        </ul>
+
+        <button
+          type="button"
+          class="theme-toggle"
+          id="themeToggle"
+          aria-label="Toggle dark mode"
+          aria-pressed="false"
+        >
+          <i data-lucide="moon"></i>
+          <span class="theme-label label">Dark Mode</span>
+          <span class="switch"><span></span></span>
+        </button>
+      </div>
+    </aside>
+    <script type="text/javascript" src="main.js"></script>
+  </body>
+</html>
