@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sidebars</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <div class="shell">
+      <div class="shell-card"></div>
+
+      <aside class="sidebar">
+        <header class="brand">
+          <span class="brand-mark">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <path
+                d="M4.2 6.1c-.4-3.4 4.3-4.3 6.2-.6 2 3.9 3.4 10.5 4 20.1-1.9-1.6-3.5-3.4-4.8-5.5C6.2 15.7 4.7 11 4.2 6.1z"
+                fill="#ffffff"
+              />
+              <path
+                d="M27.8 6.1c.4-3.4-4.3-4.3-6.2-.6-2 3.9-3.4 10.5-4 20.1 1.9-1.6 3.5-3.4 4.8-5.5 3.4-4.4 4.9-9.1 5.4-14z"
+                fill="#ffffff"
+              />
+              <path d="M12.6 5.6h6.8L16 12.8z" fill="#ff7a2f" />
+            </svg>
+          </span>
+          <span class="brand-name">Gonaki</span>
+        </header>
+
+        <div class="profile">
+          <span class="avatar">
+            <img src="avatar.png" alt="" />
+          </span>
+          <span class="profile-name">
+            <span class="name-full">Sara Yumuri</span>
+            <span class="name-initials" aria-hidden="true">SY</span>
+          </span>
+          <span class="profile-email">Sarayumuri@gmail.com</span>
+        </div>
+
+        <ul class="nav">
+          <li>
+            <button type="button">
+              <i data-lucide="user-round"></i>
+              <span class="label">Profile</span>
+              <span class="tip">Profile</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="active">
+              <i data-lucide="layout-grid"></i>
+              <span class="label">Feature</span>
+              <span class="tip">Feature</span>
+            </button>
+          </li>
+          <li>
+            <button type="button">
+              <i data-lucide="pie-chart"></i>
+              <span class="label">Package</span>
+              <span class="tip">Package</span>
+            </button>
+          </li>
+          <li>
+            <button type="button">
+              <i data-lucide="shield-check"></i>
+              <span class="label">Support</span>
+              <span class="dot"></span>
+              <span class="tip">Support</span>
+            </button>
+          </li>
+          <li>
+            <button type="button">
+              <i data-lucide="users-round"></i>
+              <span class="label">Community</span>
+              <span class="tip">Community</span>
+            </button>
+          </li>
+        </ul>
+
+        <ul class="nav nav-exit">
+          <li>
+            <button type="button">
+              <i data-lucide="log-out"></i>
+              <span class="label">Exit</span>
+              <span class="tip">Exit</span>
+            </button>
+          </li>
+        </ul>
+      </aside>
+
+      <button
+        type="button"
+        class="collapse-btn"
+        id="collapseBtn"
+        aria-label="Toggle sidebar"
+        aria-expanded="true"
+      >
+        <i data-lucide="chevron-left"></i>
+      </button>
+    </div>
+    <script type="text/javascript" src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,337 @@
+:root {
+  --navy: #0d1c2c;
+  --navy-soft: #17293c;
+  --ink: #ffffff;
+  --muted: #93a3b5;
+  --blue: #2f6df0;
+  --red: #ff4d5e;
+  --icon: 22px;
+  --nav-inset: 18px;
+  --btn-pad: 20px;
+  --rail: 98px;
+  --mark: 38px;
+  --profile-h: 267px;
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 90px;
+  padding: 48px;
+  font-family: "Euclid Circular B", system-ui, sans-serif;
+  background:
+    radial-gradient(46% 44% at 10% 4%, #5ea6ef 0%, transparent 70%),
+    radial-gradient(44% 42% at 94% 2%, #f39074 0%, transparent 70%),
+    radial-gradient(42% 40% at 2% 96%, #a8e0d2 0%, transparent 72%),
+    radial-gradient(48% 46% at 98% 92%, #f79f92 0%, transparent 72%),
+    radial-gradient(40% 34% at 44% 58%, #fdf4d2 0%, transparent 76%), #fbdfb6;
+}
+
+.shell {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.shell-card {
+  position: absolute;
+  inset: 0;
+  translate: -30px 26px;
+  border-radius: 28px;
+  background: #ffffff;
+  box-shadow: 0 26px 46px rgb(24 40 68 / 12%);
+}
+
+.sidebar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: min(830px, calc(100dvh - 130px));
+  padding: 34px 0 26px;
+  border-radius: 28px;
+  background: var(--navy);
+  box-shadow: 0 28px 60px rgb(12 26 44 / 32%);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar.collapsed {
+  --nav-inset: 25px;
+  width: var(--rail);
+}
+
+.sidebar.expanding {
+  overflow: hidden;
+}
+
+.brand {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding-left: calc((var(--rail) - var(--mark)) / 2);
+}
+
+.brand-mark {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: var(--mark);
+  height: var(--mark);
+}
+
+.brand-mark svg {
+  width: var(--mark);
+  height: var(--mark);
+}
+
+.brand-name {
+  position: absolute;
+  left: calc((var(--rail) - var(--mark)) / 2 + var(--mark) + 14px);
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  color: var(--ink);
+  transition: opacity 0.3s;
+}
+
+.sidebar.collapsed .brand-name {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.collapse-btn {
+  position: absolute;
+  top: 32px;
+  right: -22px;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 50px;
+  padding: 0;
+  border: 0;
+  border-radius: 0 12px 12px 0;
+  background: var(--navy);
+  color: var(--muted);
+  cursor: pointer;
+  box-shadow: 6px 6px 14px rgb(12 26 44 / 22%);
+  transition: color 0.25s;
+}
+
+.collapse-btn:hover {
+  color: var(--ink);
+}
+
+.collapse-btn .lucide {
+  width: 16px;
+  height: 16px;
+}
+
+.sidebar.collapsed ~ .collapse-btn .lucide {
+  rotate: 180deg;
+}
+
+.profile {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: var(--profile-h);
+  padding-inline: var(--nav-inset);
+}
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #f3ece1;
+  transition:
+    width 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar.collapsed .avatar {
+  width: 48px;
+  height: 48px;
+}
+
+.avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-name {
+  margin-top: 22px;
+  font-size: 20px;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--ink);
+}
+
+.name-initials {
+  display: none;
+}
+
+.sidebar.collapsed .name-full {
+  display: none;
+}
+
+.sidebar.collapsed .name-initials {
+  display: inline;
+}
+
+.profile-email {
+  max-width: 100%;
+  margin-top: 8px;
+  overflow: hidden;
+  font-size: 13px;
+  white-space: nowrap;
+  color: var(--muted);
+  transition: opacity 0.3s;
+}
+
+.sidebar.collapsed .profile-email {
+  opacity: 0;
+  transition: none;
+}
+
+.nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-exit {
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.nav li {
+  position: relative;
+}
+
+.nav button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: calc(100% - var(--nav-inset) * 2);
+  height: 64px;
+  margin-inline: var(--nav-inset);
+  padding-inline: var(--btn-pad);
+  border: 0;
+  border-radius: 14px;
+  background: transparent;
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--muted);
+  text-align: left;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background 0.25s,
+    color 0.25s;
+}
+
+.sidebar.collapsed .nav button {
+  padding-inline: calc(var(--rail) / 2 - var(--nav-inset) - var(--icon) / 2);
+}
+
+.nav button .label {
+  flex: 1 1 auto;
+}
+
+.nav button:hover {
+  color: var(--ink);
+}
+
+.nav button.active {
+  background: var(--navy-soft);
+  color: var(--ink);
+}
+
+.nav button.active::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: calc(var(--nav-inset) * -1 - 4px);
+  translate: 0 -50%;
+  width: 10px;
+  height: 62%;
+  border-radius: 5px;
+  background: var(--blue);
+}
+
+.dot {
+  flex: 0 0 auto;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--red);
+}
+
+.sidebar.collapsed .dot {
+  position: absolute;
+  top: 11px;
+  left: calc(var(--rail) / 2 - var(--nav-inset) - 15px);
+}
+
+.tip {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + var(--nav-inset) + 6px);
+  translate: 0 -50%;
+  padding: 12px 20px;
+  border-radius: 12px;
+  background: var(--navy);
+  border: 1px solid rgb(255 255 255 / 8%);
+  box-shadow: 0 12px 28px rgb(12 26 44 / 35%);
+  font-size: 15px;
+  white-space: nowrap;
+  color: var(--ink);
+  opacity: 0;
+  pointer-events: none;
+  display: none;
+}
+
+.sidebar.collapsed .tip {
+  display: block;
+  transition:
+    opacity 0.2s,
+    translate 0.2s;
+}
+
+.sidebar.collapsed button:hover .tip,
+.sidebar.collapsed button:focus-visible .tip {
+  opacity: 1;
+  translate: 6px -50%;
+}
+
+.sidebar.collapsed .label {
+  display: none;
+}
+
+.sidebar .lucide {
+  flex: 0 0 auto;
+  width: var(--icon);
+  height: var(--icon);
+  stroke-width: 1.75;
+}
