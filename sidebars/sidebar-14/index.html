@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sidebars</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="sidebar-inner">
+        <div class="brand">
+          <span class="brand-mark">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <rect width="32" height="32" rx="9" fill="currentColor" />
+              <g fill="#ffffff">
+                <ellipse
+                  cx="11.3"
+                  cy="12.4"
+                  rx="5.2"
+                  ry="6"
+                  transform="rotate(-30 11.3 12.4)"
+                />
+                <ellipse
+                  cx="20.7"
+                  cy="12.4"
+                  rx="5.2"
+                  ry="6"
+                  transform="rotate(30 20.7 12.4)"
+                />
+                <ellipse
+                  cx="11.6"
+                  cy="20.6"
+                  rx="4.6"
+                  ry="5.3"
+                  transform="rotate(-62 11.6 20.6)"
+                />
+                <ellipse
+                  cx="20.4"
+                  cy="20.6"
+                  rx="4.6"
+                  ry="5.3"
+                  transform="rotate(62 20.4 20.6)"
+                />
+              </g>
+              <circle cx="16" cy="16.4" r="2.9" fill="currentColor" />
+            </svg>
+          </span>
+          <span class="brand-name label">Dashboard</span>
+        </div>
+
+        <button
+          type="button"
+          class="collapse-btn"
+          id="collapseBtn"
+          aria-label="Toggle sidebar"
+        >
+          <i data-lucide="panel-left"></i>
+        </button>
+
+        <hr class="divider" />
+
+        <div class="profile">
+          <span class="avatar">
+            <img src="avatar.jpg" alt="" />
+          </span>
+          <span class="profile-text label">
+            <span class="profile-name">Ajendra S.</span>
+            <span class="profile-role">UI/UX Designer</span>
+          </span>
+        </div>
+
+        <ul class="nav">
+          <li class="indicator" aria-hidden="true"></li>
+          <li>
+            <button type="button" data-tip="Dashboard" class="active">
+              <i data-lucide="layout-grid"></i>
+              <span class="label">Dashboard</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" data-tip="Products">
+              <i data-lucide="shopping-bag"></i>
+              <span class="label">Products</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" data-tip="Categories">
+              <i data-lucide="list-tree"></i>
+              <span class="label">Categories</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" data-tip="Orders">
+              <i data-lucide="receipt-text"></i>
+              <span class="label">Orders</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" data-tip="Customers">
+              <i data-lucide="users"></i>
+              <span class="label">Customers</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" data-tip="Sales Offers">
+              <i data-lucide="gift"></i>
+              <span class="label">Sales Offers</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" data-tip="Dealership">
+              <i data-lucide="pie-chart"></i>
+              <span class="label">Dealership</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" data-tip="Locations">
+              <i data-lucide="map-pin"></i>
+              <span class="label">Locations</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" data-tip="Settings">
+              <i data-lucide="settings"></i>
+              <span class="label">Settings</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" data-tip="Logout">
+              <i data-lucide="log-out"></i>
+              <span class="label">Logout</span>
+            </button>
+          </li>
+        </ul>
+
+        <button
+          type="button"
+          class="theme-toggle"
+          id="themeToggle"
+          data-tip="Dark Mode"
+          aria-label="Toggle dark mode"
+          aria-pressed="false"
+        >
+          <i data-lucide="moon"></i>
+          <span class="theme-label label">Dark Mode</span>
+          <span class="switch"><span></span></span>
+        </button>
+      </div>
+    </aside>
+    <script type="text/javascript" src="main.js"></script>
+  </body>
+</html>

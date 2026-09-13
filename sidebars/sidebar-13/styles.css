@@ -48,7 +48,13 @@ body {
   translate: -30px 26px;
   border-radius: 28px;
   background: #ffffff;
+  opacity: 0.5;
   box-shadow: 0 26px 46px rgb(24 40 68 / 12%);
+}
+
+.shell-card-far {
+  translate: -54px 48px;
+  opacity: 0.25;
 }
 
 .sidebar {
