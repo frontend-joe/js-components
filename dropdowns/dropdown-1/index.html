@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dropdowns</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="dropdown" id="dropdown">
+      <button
+        type="button"
+        class="trigger"
+        id="trigger"
+        aria-haspopup="true"
+        aria-expanded="false"
+        aria-controls="menu"
+      >
+        <i class="ph-light ph-user" aria-hidden="true"></i>
+        <span>Joseph Harrison</span>
+        <i class="ph-light ph-caret-down chevron" aria-hidden="true"></i>
+      </button>
+
+      <div class="menu" id="menu" role="menu">
+        <div class="pages" id="pages">
+          <div class="page" data-page="root" data-level="0">
+            <button type="button" class="row" role="menuitem" data-open="settings">
+              <i class="ph-light ph-gear" aria-hidden="true"></i>
+              <span>Settings</span>
+              <i class="ph-light ph-caret-right chevron" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="row" role="menuitem" data-open="account">
+              <i class="ph-light ph-lock-simple" aria-hidden="true"></i>
+              <span>Account</span>
+              <i class="ph-light ph-caret-right chevron" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="row" role="menuitem" data-open="team">
+              <i class="ph-light ph-users-three" aria-hidden="true"></i>
+              <span>Team</span>
+              <i class="ph-light ph-caret-right chevron" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="row" role="menuitem">
+              <i class="ph-light ph-sign-out" aria-hidden="true"></i>
+              <span>Logout</span>
+            </button>
+          </div>
+
+          <div class="page" data-page="settings" data-level="1" aria-hidden="true">
+            <button type="button" class="row back" data-back>
+              <i class="ph-light ph-arrow-left" aria-hidden="true"></i>
+              <span>Settings</span>
+            </button>
+            <button type="button" class="row" role="menuitem">
+              <i class="ph-light ph-file" aria-hidden="true"></i><span>Inventory</span>
+            </button>
+            <button type="button" class="row" role="menuitem">
+              <i class="ph-light ph-folder-simple" aria-hidden="true"></i><span>Management</span>
+            </button>
+          </div>
+
+          <div class="page" data-page="account" data-level="1" aria-hidden="true">
+            <button type="button" class="row back" data-back>
+              <i class="ph-light ph-arrow-left" aria-hidden="true"></i>
+              <span>Account</span>
+            </button>
+            <button type="button" class="row" role="menuitem">
+              <i class="ph-light ph-database" aria-hidden="true"></i><span>Storage</span>
+            </button>
+            <button type="button" class="row" role="menuitem">
+              <i class="ph-light ph-gift" aria-hidden="true"></i><span>Rewards</span>
+            </button>
+            <button type="button" class="row" role="menuitem">
+              <i class="ph-light ph-chat-circle" aria-hidden="true"></i><span>Support</span>
+            </button>
+            <button type="button" class="row" role="menuitem">
+              <i class="ph-light ph-package" aria-hidden="true"></i><span>Shipping</span>
+            </button>
+          </div>
+          <div class="page" data-page="team" data-level="1" aria-hidden="true">
+            <button type="button" class="row back" data-back>
+              <i class="ph-light ph-arrow-left" aria-hidden="true"></i>
+              <span>Team</span>
+            </button>
+            <button type="button" class="row" role="menuitem">
+              <i class="ph-light ph-user-circle" aria-hidden="true"></i><span>Members</span>
+            </button>
+            <button type="button" class="row" role="menuitem">
+              <i class="ph-light ph-identification-badge" aria-hidden="true"></i><span>Roles</span>
+            </button>
+            <button type="button" class="row" role="menuitem">
+              <i class="ph-light ph-envelope-simple" aria-hidden="true"></i><span>Invitations</span>
+            </button>
+            <button type="button" class="row" role="menuitem">
+              <i class="ph-light ph-key" aria-hidden="true"></i><span>Permissions</span>
+            </button>
+            <button type="button" class="row" role="menuitem">
+              <i class="ph-light ph-pulse" aria-hidden="true"></i><span>Activity</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
