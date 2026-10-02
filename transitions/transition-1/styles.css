@@ -1,0 +1,212 @@
+:root {
+  /* Both themes live here so the page and the cover that precedes it can never
+     disagree — the leaving page paints its cover from these too. */
+  --page-bg-light: #ffffff;
+  --page-bg-dark: #0c101c;
+
+  --page-bg: var(--page-bg-light);
+  --page-fg: var(--page-bg-dark);
+
+  /* How long the incoming page waits before animating its elements in — and so
+     how long the bubbles hold their cover after the route has changed, so those
+     elements are already moving by the time the cover lifts. */
+  --enter-delay: 0.2s;
+}
+
+:root[data-theme="dark"] {
+  --page-bg: var(--page-bg-dark);
+  --page-fg: var(--page-bg-light);
+}
+
+/* The cover on the leaving page takes the colour of the page it is about to
+   reveal, so it matches the moment it lifts. */
+.bubbles__second[data-target="light"] {
+  background: var(--page-bg-light);
+}
+
+.bubbles__second[data-target="dark"] {
+  background: var(--page-bg-dark);
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: var(--page-bg);
+  font-family: "Euclid Circular B", "Poppins";
+}
+
+h1,
+h2 {
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 20px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+p {
+  position: relative;
+  z-index: 0;
+  opacity: 0.6;
+  line-height: 1.6;
+}
+
+section {
+  height: 100vh;
+  background: var(--page-bg);
+  color: var(--page-fg);
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 142px;
+  padding: 0 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav h1 {
+  animation: appear 0.25s var(--enter-delay) both;
+}
+
+nav ul {
+  animation: appear 0.25s calc(var(--enter-delay) * 2) both;
+}
+
+nav a {
+  color: inherit;
+  cursor: pointer;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+nav a[aria-current="page"] {
+  color: #658dfd;
+}
+
+nav ul {
+  display: flex;
+  gap: 20px;
+  list-style-type: none;
+}
+
+.bubbles {
+  /* Even, so the width and the `translate: 0 100%` start/end land on whole
+     pixels too — see the note on `left` below. */
+  --size: round(250vw, 2px);
+  --bubble-duration: 1000ms;
+}
+
+@media only screen and (min-width: 768px) {
+  .bubbles {
+    --size: round(300vw, 2px);
+  }
+}
+
+.bubbles__first,
+.bubbles__second {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  /* Centred through `left` and snapped to a whole pixel, rather than the usual
+     `left: 50%` + `translate: -50%`. Both halves of that idiom land on a half
+     pixel whenever the viewport width or `--size` is odd, and Chrome rasterises
+     a layer this large tile by tile: neighbouring tiles then round the
+     rounded-rect edge differently and leave a one-pixel column where the fill
+     does not meet, showing the bubble underneath through it. `translate` is now
+     free to carry the vertical motion alone. */
+  left: round(calc(50% - var(--size) / 2), 1px);
+  translate: 0 100%;
+  width: var(--size);
+  height: var(--size);
+  border-radius: var(--size);
+  animation-duration: var(--bubble-duration);
+  animation-timing-function: ease-in-out;
+}
+
+.bubbles__first {
+  background: #416bdd;
+}
+
+/* `forwards` keeps the cover in place once the animation finishes. Without it
+   the bubbles snap away the instant the last frame is drawn, which can be a
+   frame or two before React commits the new route — a flash of the old page. */
+.bubbles.covering .bubbles__first {
+  animation-name: bubble-move;
+  animation-fill-mode: forwards;
+}
+
+.bubbles.covering .bubbles__second {
+  animation-name: bubble-second-move;
+  animation-fill-mode: forwards;
+}
+
+/* Holds the cover still while the incoming page starts its `appear` animations.
+   Its end is what drops the bubbles, so no timer has to match this duration. */
+.bubbles.holding .bubbles__second {
+  animation-name: hold;
+  animation-duration: var(--enter-delay);
+}
+
+.entering .bubbles__first,
+.entering .bubbles__second {
+  translate: 0 0;
+  border-radius: 0;
+}
+
+.entering .bubbles__second {
+  background: var(--page-bg);
+  animation-name: hold;
+  animation-duration: var(--enter-delay);
+}
+
+@keyframes hold {
+  from,
+  to {
+    translate: 0 0;
+    border-radius: 0;
+  }
+}
+
+@keyframes bubble-move {
+  20% {
+    border-radius: var(--size);
+  }
+  50%,
+  100% {
+    translate: 0 0;
+    border-radius: 0;
+  }
+}
+
+@keyframes bubble-second-move {
+  30% {
+    translate: 0 100%;
+  }
+  50% {
+    border-radius: var(--size);
+  }
+  100% {
+    translate: 0 0;
+    border-radius: 0;
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    translate: 0 100%;
+  }
+  100% {
+    opacity: 1;
+    translate: 0;
+  }
+}

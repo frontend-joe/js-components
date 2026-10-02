@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transitions</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      // Runs before the body paints: a page arrived at through a transition has
+      // to come up already covered, or the old cover lifts to a flash of this
+      // page before its own cover is in place. Kept out of the URL so no marker
+      // is ever visible in the address bar.
+      try {
+        if (sessionStorage.getItem("entering")) {
+          sessionStorage.removeItem("entering");
+          document.documentElement.classList.add("entering");
+        }
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <div class="bubbles">
+      <div class="bubbles__first"></div>
+      <div class="bubbles__second"></div>
+    </div>
+
+    <section>
+      <nav>
+        <h1>Portfolio</h1>
+        <ul>
+          <li>
+            <a href="index.html" data-theme="light">Home</a>
+          </li>
+          <li>
+            <a href="portfolio.html" data-theme="dark" aria-current="page">Portfolio</a>
+          </li>
+          <li>
+            <a href="contact.html" data-theme="light">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </section>
+
+    <script src="main.js"></script>
+  </body>
+</html>
