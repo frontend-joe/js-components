@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Controls</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <div class="dropdown" id="dropdown">
+      <div class="textbox">
+        <input
+          placeholder="Search"
+          autocomplete="off"
+          spellcheck="false"
+          id="input"
+          type="text"
+        />
+        <i class="search-icon" data-lucide="search"></i>
+        <button
+          type="button"
+          class="clear-btn"
+          id="clear-btn"
+          aria-label="Clear search"
+          tabindex="-1"
+        >
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="menu" id="menu"></div>
+    </div>
+    <script type="text/javascript" src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,289 @@
+:root {
+  --bg: #0e0e11;
+  --text: #f5f5f7;
+  --muted: rgb(235 235 245 / 60%);
+  --faint: rgb(235 235 245 / 30%);
+  --material: rgb(30 30 34 / 72%);
+  --material-hover: rgb(30 30 34 / 76%);
+  --hairline: rgb(255 255 255 / 14%);
+  --elevation: 0 16px 40px -12px rgb(0 0 0 / 60%);
+  --spring: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: "Euclid Circular A", "Poppins", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: var(--text);
+  /* a scrim over the photo: the glass needs texture behind it to read as
+     glass, but the field and menu text need a stable floor to sit on */
+  background:
+    linear-gradient(rgb(14 14 17 / 45%), rgb(14 14 17 / 45%)),
+    url("bg.jpg") no-repeat 50% 50% / cover,
+    var(--bg);
+}
+
+.dropdown {
+  position: relative;
+  translate: 0 -60px;
+}
+
+/* ---------- one material, worn by both surfaces ---------- */
+.textbox > input,
+.menu {
+  background: var(--material);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  box-shadow:
+    inset 0 0 0 0.5px var(--hairline),
+    var(--elevation);
+}
+
+.textbox > input {
+  height: 56px;
+  width: 56px;
+  padding-left: 36px;
+  border: 0;
+  border-radius: 28px;
+  outline: none;
+  font-family: inherit;
+  font-size: 17px;
+  text-indent: 18px;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  transition:
+    width 0.55s var(--spring),
+    background 0.3s var(--spring),
+    box-shadow 0.3s var(--spring);
+}
+
+.textbox > input::placeholder {
+  color: var(--faint);
+  opacity: 0;
+}
+
+.textbox > input:hover {
+  background: var(--material-hover);
+}
+
+.textbox > input:focus::placeholder {
+  opacity: 1;
+}
+
+.textbox > input:focus {
+  width: 300px;
+  background: var(--material-hover);
+  box-shadow:
+    inset 0 0 0 0.5px rgb(255 255 255 / 28%),
+    var(--elevation);
+}
+
+.textbox > :is(input:focus, .has-value) {
+  width: 300px;
+  background: var(--material-hover);
+  padding-right: 46px;
+  box-shadow:
+    inset 0 0 0 0.5px rgb(255 255 255 / 28%),
+    var(--elevation),
+    0 0 0 1px rgb(190 190 198 / 22%);
+}
+
+.textbox > .search-icon {
+  position: absolute;
+  top: 50%;
+  left: 18px;
+  translate: 0 -50%;
+  z-index: 2;
+  width: 20px;
+  height: 20px;
+  stroke-width: 1.75;
+  color: var(--faint);
+  pointer-events: none;
+  transition: color 0.3s var(--spring);
+}
+
+.textbox > :is(input:focus, .has-value) ~ .search-icon {
+  color: var(--text);
+}
+
+/* Tied to .has-value, which only ever holds while the field is expanded —
+   so it is hidden when collapsed, and never offers to clear nothing. */
+.clear-btn {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  translate: 0 -50%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 12%);
+  color: var(--muted);
+  cursor: pointer;
+  opacity: 0;
+  scale: 0.8;
+  pointer-events: none;
+  transition:
+    opacity 0.2s var(--spring),
+    scale 0.25s var(--spring),
+    background 0.2s var(--spring),
+    color 0.2s var(--spring);
+}
+
+.textbox > input.has-value ~ .clear-btn {
+  opacity: 1;
+  scale: 1;
+  pointer-events: auto;
+}
+
+.clear-btn:hover {
+  background: rgb(255 255 255 / 22%);
+  color: var(--text);
+}
+
+.clear-btn:active {
+  scale: 0.9;
+}
+
+.clear-btn svg {
+  width: 15px;
+  height: 15px;
+  stroke-width: 2.25;
+}
+
+/* ---------- menu: a material, anchored to the field ---------- */
+.menu {
+  position: absolute;
+  top: 66px;
+  left: 0;
+  display: grid;
+  align-content: start;
+  width: 100%;
+  max-height: 232px;
+  padding: 6px;
+  overflow: auto;
+  scrollbar-width: none;
+  border-radius: 16px;
+  transform-origin: top center;
+  opacity: 0;
+  scale: 0.96;
+  translate: 0 -6px;
+  visibility: hidden;
+  /* materialise rather than fade: blur and scale arrive together */
+  filter: blur(4px);
+  transition:
+    opacity 0.22s var(--spring),
+    scale 0.34s var(--spring),
+    translate 0.34s var(--spring),
+    filter 0.22s var(--spring),
+    visibility 0s linear 0.34s;
+}
+
+.menu::-webkit-scrollbar {
+  display: none;
+}
+
+.dropdown.open .menu {
+  opacity: 1;
+  scale: 1;
+  translate: 0 0;
+  filter: none;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+.menu button {
+  height: 38px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  font-family: inherit;
+  font-size: 15px;
+  letter-spacing: -0.005em;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background 0.18s var(--spring),
+    transform 0.12s var(--spring);
+}
+
+.menu button.focused,
+.menu button:hover {
+  background: rgb(255 255 255 / 10%);
+}
+
+/* response lands on the press, not the release */
+.menu button:active {
+  background: rgb(255 255 255 / 16%);
+  transform: scale(0.985);
+}
+
+.menu p {
+  display: flex;
+  align-items: center;
+  height: 38px;
+  margin: 0;
+  padding: 0 12px;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu {
+    transition:
+      opacity 0.15s linear,
+      visibility 0s linear 0.15s;
+    scale: 1;
+    translate: 0 0;
+    filter: none;
+  }
+
+  .textbox > input {
+    transition: width 0.15s linear;
+  }
+
+  .menu button {
+    transition: background 0.12s linear;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .textbox > input,
+  .menu {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .textbox > input,
+  .menu {
+    background: #26262c;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --hairline: rgb(255 255 255 / 55%);
+    --faint: rgb(235 235 245 / 70%);
+  }
+
+  .menu {
+    background: #16161a;
+  }
+}
