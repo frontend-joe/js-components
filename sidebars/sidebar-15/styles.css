@@ -1,0 +1,431 @@
+* {
+  box-sizing: border-box;
+}
+
+.page {
+  --page: #eef0f4;
+  --surface: #ffffff;
+  --text: #2b303b;
+  --soft: #5d6472;
+  --muted: #99a0ad;
+  --border: #eaedf1;
+  --chip: #f2f4f7;
+  --accent: #463eda;
+  --active: rgb(70 62 218 / 10%);
+  --tip: #2b303b;
+  --tip-text: #ffffff;
+  --shadow: 0 24px 60px rgb(30 41 59 / 12%);
+  height: 100vh;
+  display: flex;
+  background: var(--page);
+  color: var(--text);
+  font-family: "Euclid Circular B", "Poppins";
+}
+
+.page.dark {
+  color-scheme: dark;
+  --page: #1e2430;
+  --surface: #0e1116;
+  --text: #dfe3ea;
+  --soft: #949cab;
+  --muted: #69717f;
+  --border: #1c222c;
+  --chip: #191e27;
+  --accent: #7f79f6;
+  --active: rgb(127 121 246 / 18%);
+  --tip: var(--surface);
+  --tip-text: #dfe3ea;
+  --shadow: none;
+}
+
+body {
+  margin: 0;
+}
+
+.icon {
+  flex: 0 0 auto;
+  display: block;
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sidebar {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  bottom: 32px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 84px;
+  padding: 20px;
+  border-radius: 24px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  white-space: nowrap;
+  transition: width 0.35s ease;
+}
+
+.sidebar.open {
+  width: 264px;
+}
+
+.profile {
+  position: relative;
+  height: 44px;
+}
+
+/* taken out of the flow so the avatar and text keep their size and position
+   while the rail narrows around them, and simply fade */
+.identity {
+  position: absolute;
+  inset: 0 auto 0 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 166px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s;
+}
+
+.sidebar.open .identity {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.25s 0.1s;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.details {
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.name {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.role {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.collapse-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--soft);
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+
+.collapse-btn:hover {
+  background: var(--active);
+  color: var(--accent);
+}
+
+.collapse-btn .icon {
+  width: 20px;
+  height: 20px;
+}
+
+.search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: width 0.35s ease;
+}
+
+.sidebar.open .search {
+  width: 100%;
+}
+
+.search input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: inherit;
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+  font-size: 14px;
+  padding: 0 44px 0 14px;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.sidebar.open .search input {
+  opacity: 1;
+  transition: opacity 0.25s 0.1s;
+}
+
+.search input::placeholder {
+  color: var(--muted);
+}
+
+.search input:focus {
+  outline: 0;
+}
+
+.search > .icon {
+  position: absolute;
+  right: 11px;
+  top: 50%;
+  translate: 0 -50%;
+  color: var(--muted);
+  pointer-events: none;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 56px;
+  color: var(--soft);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  translate: 0 -50%;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  transition:
+    width 0.35s ease,
+    height 0.35s ease,
+    background-color 0.2s;
+}
+
+.sidebar.open .item::before {
+  width: 100%;
+  height: 56px;
+}
+
+.item > .icon,
+.item p {
+  position: relative;
+}
+
+.nav-radio {
+  display: none;
+}
+
+.nav-radio:checked + .item {
+  color: var(--accent);
+}
+
+.nav-radio:checked + .item::before {
+  background: var(--active);
+}
+
+hr {
+  height: 1px;
+  margin: 12px 0;
+  border: 0;
+  background: var(--border);
+}
+
+.item > .icon {
+  margin: 0 11px;
+}
+
+.item p {
+  margin: 0;
+  font-size: 15px;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.sidebar.open .item p {
+  opacity: 1;
+  transition: opacity 0.25s 0.1s;
+}
+
+/* collapsed, the label leaves the flow and becomes a tooltip beside the rail,
+   fixed so the sidebar's overflow cannot clip it */
+.sidebar:not(.open) .item p {
+  position: fixed;
+  left: 116px;
+  top: auto;
+  z-index: 10;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: var(--tip);
+  color: var(--tip-text);
+  font-size: 13px;
+  white-space: nowrap;
+  pointer-events: none;
+  /* no fade out, or the label is visible as a chip while the rail collapses */
+  transition: none;
+}
+
+/* an animation rather than a transition: it restarts the moment the sidebar
+   collapses, so a cursor already resting on a row cannot flash the tooltip
+   mid-collapse, and the delay holds it back until the rail has settled */
+.sidebar:not(.open) .item:hover p {
+  animation: tooltip 0.15s ease 0.3s both;
+}
+
+@keyframes tooltip {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.item:hover {
+  color: var(--accent);
+}
+
+.badge {
+  position: absolute;
+  top: 8px;
+  right: -12px;
+  translate: 0 0;
+  display: grid;
+  place-items: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 50px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 12px;
+  transition:
+    top 0.35s ease,
+    right 0.35s ease,
+    translate 0.35s ease;
+}
+
+.sidebar.open .badge {
+  top: 50%;
+  right: 8px;
+  translate: 0 -50%;
+}
+
+.actions {
+  position: relative;
+  flex-shrink: 0;
+  height: 200px;
+  margin-top: auto;
+  transition: height 0.35s ease;
+}
+
+.sidebar.open .actions {
+  height: 44px;
+}
+
+.action {
+  position: absolute;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background: var(--chip);
+  color: var(--soft);
+  cursor: pointer;
+  transition:
+    top 0.35s ease,
+    left 0.35s ease;
+}
+
+.action:nth-child(1) {
+  top: 156px;
+}
+
+.action:nth-child(2) {
+  top: 104px;
+}
+
+.action:nth-child(3) {
+  top: 52px;
+}
+
+.action:nth-child(4) {
+  top: 0;
+}
+
+.action:hover {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.sidebar.open .action {
+  top: 0;
+}
+
+.sidebar.open .action:nth-child(2) {
+  left: 60px;
+}
+
+.sidebar.open .action:nth-child(3) {
+  left: 120px;
+}
+
+.sidebar.open .action:nth-child(4) {
+  left: 180px;
+}
+
+.action .icon {
+  width: 20px;
+  height: 20px;
+}
+
+.action .sun,
+.page.dark .action .moon {
+  display: none;
+}
+
+.page.dark .action .sun {
+  display: block;
+}

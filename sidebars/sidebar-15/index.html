@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sidebars</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="page">
+      <aside class="sidebar">
+        <div class="profile">
+          <div class="identity">
+            <img class="avatar" src="avatar.png" alt="" />
+            <div class="details">
+              <p class="name">Ana Sharma</p>
+              <p class="role">Admin</p>
+            </div>
+          </div>
+          <button
+            type="button"
+            class="collapse-btn"
+            id="collapse-btn"
+            aria-label="Collapse sidebar"
+            aria-expanded="false"
+          >
+            <i class="icon" data-lucide="panel-left"></i>
+          </button>
+        </div>
+
+        <div class="search">
+          <input type="text" placeholder="Search dashboard" />
+          <i class="icon" data-lucide="search"></i>
+        </div>
+
+        <nav>
+          <input type="radio" name="nav" id="nav-1" class="nav-radio" checked />
+          <label class="item" for="nav-1">
+            <i class="icon" data-lucide="layout-dashboard"></i>
+            <p>Overview</p>
+          </label>
+
+          <input type="radio" name="nav" id="nav-2" class="nav-radio" />
+          <label class="item" for="nav-2">
+            <i class="icon" data-lucide="activity"></i>
+            <p>Vitals</p>
+          </label>
+
+          <input type="radio" name="nav" id="nav-3" class="nav-radio" />
+          <label class="item" for="nav-3">
+            <i class="icon" data-lucide="users"></i>
+            <p>Patients</p>
+          </label>
+
+          <input type="radio" name="nav" id="nav-4" class="nav-radio" />
+          <label class="item" for="nav-4">
+            <i class="icon" data-lucide="calendar"></i>
+            <p>Appointments</p>
+          </label>
+
+          <hr />
+
+          <input type="radio" name="nav" id="nav-5" class="nav-radio" />
+          <label class="item" for="nav-5">
+            <i class="icon" data-lucide="pill"></i>
+            <p>Medications</p>
+            <span class="badge">2</span>
+          </label>
+
+          <input type="radio" name="nav" id="nav-6" class="nav-radio" />
+          <label class="item" for="nav-6">
+            <i class="icon" data-lucide="flask-conical"></i>
+            <p>Lab Results</p>
+          </label>
+
+          <input type="radio" name="nav" id="nav-7" class="nav-radio" />
+          <label class="item" for="nav-7">
+            <i class="icon" data-lucide="clipboard-list"></i>
+            <p>Care Plans</p>
+          </label>
+        </nav>
+
+        <div class="actions">
+          <button
+            class="action"
+            type="button"
+            id="theme-btn"
+            aria-label="Toggle theme"
+            aria-pressed="false"
+          >
+            <i class="icon moon" data-lucide="moon"></i>
+            <i class="icon sun" data-lucide="sun"></i>
+          </button>
+          <button class="action" type="button">
+            <i class="icon" data-lucide="settings"></i>
+          </button>
+          <button class="action" type="button">
+            <i class="icon" data-lucide="plus"></i>
+          </button>
+          <button class="action" type="button">
+            <i class="icon" data-lucide="log-out"></i>
+          </button>
+        </div>
+      </aside>
+    </div>
+
+    <script src="https://unpkg.com/lucide@1.46.0"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
